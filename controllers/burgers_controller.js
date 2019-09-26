@@ -1,7 +1,8 @@
-
-var express = require("express");
 var burger = require("../models/burger.js");
-var router = express.Router();
+
+module.exports = function(express) {
+
+var router = express.Router()
 
 router.get("/", function (req, res) {
 	burger.selectAll("burgers", function (data) {
@@ -51,5 +52,4 @@ router.delete("/api/burgers/:id", function (req, res) {
 		}
 	});
 });
-
-module.exports = router;
+}
